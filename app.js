@@ -2,6 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const ejs = require('ejs');
 const path = require('path');
+const bodyparser = require('body-parser');
+const sharp = require('sharp');
 
 // Set The Storage Engine
 const storage = multer.diskStorage({
@@ -39,6 +41,9 @@ function checkFileType(file, cb){
 // Init app
 const app = express();
 
+//express body parser middleware
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended: true}));
 // EJS
 app.set('view engine', 'ejs');
 
@@ -49,6 +54,10 @@ app.get('/', (req, res) => res.render('index'));
 
 app.post('/upload', (req, res) => {
   upload(req, res, (err) => {
+
+    var width = parseInt(req.body.width);
+    var hieght = parseInt(req.body.hieght);
+
     if(err){
       res.render('index', {
         msg: err
@@ -58,13 +67,30 @@ app.post('/upload', (req, res) => {
         res.render('index', {
           msg: 'Error: No File Selected!'
         });
-      } else {
-        res.render('index', {
-          msg: 'File Uploaded!',
-          file: `uploads/${req.file.filename}`
-        });
+    } else {
+        if(isNaN(width) || isNaN(hieght)){
+            res.render('index',{
+                msg:'Error : Enter width or hight'
+            });
+    } else {
+          sharp(`./public/uploads/${req.file.filename}`)
+          .resize(width,hieght)
+          .toFile(`./public/uploads/${req.file.filename}` + 'R' +
+          path.extname(req.file.originalname)
+          , (err ,info) => {
+              if(err){
+                  console.log(err);
+              }else {
+                  res.render('index', {
+                    msg: 'File Resized Successfully!',
+                   file: `uploads/${req.file.filename}` + 'R'
+                   +`${path.extname(req.file.originalname)}`
+                  });
+              }
+          });
       }
     }
+}
   });
 });
 
