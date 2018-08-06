@@ -50,7 +50,14 @@ app.set('view engine', 'ejs');
 // Public Folder
 app.use(express.static('./public'));
 
-app.get('/', (req, res) => res.render('index'));
+app.get('/', (req, res) => {res.render('index')
+});
+
+// test how to return json object.
+app.get('/test', (req, res) => {
+    res.render('test');
+});
+
 
 app.post('/upload', (req, res) => {
   upload(req, res, (err) => {

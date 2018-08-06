@@ -1,12 +1,12 @@
 {
   "name": "nodeuploads",
   "version": "1.0.0",
-  "description": "Example for image uploading in Node",
+  "description": "Example for image uploading and resizing in Node",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
-  "author": "",
+  "author": "Abdulaziz Alayed",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
