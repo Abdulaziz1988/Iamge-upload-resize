@@ -3,6 +3,7 @@
 An example of how to upload images locally with Node.js and Multer.
 
 ### Version
+
 1.0.0
 
 ## Usage
@@ -16,6 +17,7 @@ $ npm install
 ```
 
 ### Serve
+
 To serve in the browser
 
 ```sh
@@ -23,11 +25,6 @@ $ npm start
 ```
 
 ## App Info
-
-### Author
-
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
 
 ### Version
 
