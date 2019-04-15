@@ -1,53 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+    />
 
-  <title>Node File Uploads</title>
-</head>
-<body>
+    <title>Node Image Uploads</title>
+  </head>
+  <body>
     <nav>
-  <div class="nav-wrapper black center-align">
-    <a href="#" class="brand-logo">on-the-fly-resizer</a>
-  </div>
-</nav>
-  <div class="container">
-    <h1 class="center-align">File Upload</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-      <div class="file-field input-field">
-        <div class="btn grey">
-          <span>File</span>
-          <input name="myImage" type="file">
-        </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
-        </div>
+      <div class="nav-wrapper black center-align">
+        <a href="#" class="brand-logo">on-the-fly-resizer</a>
       </div>
-      <div class="row">
-        <div class="input-field col s3">
-          <input value="" id="width" type="text" name="width" class="validate">
-          <label class="active" for="width">Width</label>
-      </div>
-      <div class="input-field col s3">
-          <input value="" id="hieght" type="text" name="hieght"class="validate">
-          <label class="active" for="hieght">hieght</label>
-        </div>
+    </nav>
+    <div class="container">
+      <h1 class="center-align">File Upload</h1>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="file-field input-field">
+          <div class="btn grey">
+            <span>File</span>
+            <input name="myImage" type="file" />
           </div>
-      <button type="submit" class="btn">Submit</button>
-    </form>
-    <br class="text-color red">
-    <%= typeof msg != 'undefined' ? msg : '' %>
-    <br>
-    <img src="<%= typeof file != 'undefined' ? file : '' %>" class=" responsive-img">
-  </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s3">
+            <input
+              value=""
+              id="width"
+              type="text"
+              name="width"
+              class="validate"
+            />
+            <label class="active" for="width">Width</label>
+          </div>
+          <div class="input-field col s3">
+            <input
+              value=""
+              id="hieght"
+              type="text"
+              name="hieght"
+              class="validate"
+            />
+            <label class="active" for="hieght">hieght</label>
+          </div>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <br class="text-color red" />
+      <%= typeof msg != 'undefined' ? msg : '' %>
+      <br />
+      <img
+        src="<%= typeof file != 'undefined' ? file : '' %>"
+        class=" responsive-img"
+      />
+    </div>
 
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
 </html>
