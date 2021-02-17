@@ -4,7 +4,7 @@
   "description": "Example for image uploading and resizing in Node",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "npm start"
   },
   "author": "Abdulaziz Alayed",
   "license": "ISC",
